@@ -19,7 +19,7 @@ function recogerDatos(){
             peso: (data.weight)/10
         }
         imprimirPokemon(POKEMON);
-        console.log(data);
+        grafico(POKEMON);
     });
       
     request.fail(function( error ) {
@@ -163,8 +163,9 @@ function grafico(pokemon) {
         },
         data: [
         {
-            
+            color: "#21209c",
             type: "column",
+            legendText: "Puntos",
             dataPoints: [
                 { label: "HP",  y: pokemon.hp  },
                 { label: "Ataque", y: pokemon.ataque },
