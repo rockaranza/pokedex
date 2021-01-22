@@ -3,7 +3,11 @@ window.onload = pokemonSalvaje();
 function recogerDatos(){
     //tomar el valor ingresado en el input para despues entregarlo a la API
     let nombrePoke = document.getElementById("nombrePokemon").value;
-
+    
+    //validacion ingreso en mayusculas
+    if (nombrePoke === nombrePoke.toUpperCase()){
+        nombrePoke = nombrePoke.toLowerCase()
+    }
     //consulta a la API con el nombre del pokemon ingresado anteriormente
     var request = $.ajax({
         url: `https://pokeapi.co/api/v2/pokemon/${nombrePoke}`,
