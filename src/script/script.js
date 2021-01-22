@@ -9,7 +9,12 @@ function recogerDatos(){
         method: "GET"
     });
     request.done(function( data ) {
-        pokeAux=data;
+        const POKEMON = {
+            nombre: data.name,
+            id: data.id,
+            imagen: data.sprites.other.dream_world.front_default
+        }
+        imprimirPokemon(POKEMON);
         console.log(data);
     });
       
@@ -20,9 +25,6 @@ function recogerDatos(){
 }
 
 function pokemonSalvaje(){
-    // pasar la etiqueta html a una variable para luego cambiar sus atributos
-    var imprimirNombre = document.getElementById("nombreDePokemon");
-    var imprimirImagen = document.getElementById("imagenPokemon");
     //numero random entre 1 - 150 para mostrar pokemon aleatorio
     pokeNumero = Math.floor(Math.random() * (151 - 1)) + 1;
 
@@ -32,16 +34,30 @@ function pokemonSalvaje(){
         method: "GET"
     });
     request.done(function( data ) {
-        //guardar la informacion en una variable para consultar lo que necesitemos  
-        pokeAux=data;
-        //cambiamos los atributos con la informacion que aporta el pokeAux (infi guardada anteriormente)
-        imprimirNombre.innerHTML = `${pokeAux.name.toUpperCase()}`;
-        imprimirImagen.src = `${pokeAux.sprites.other.dream_world.front_default}`;
+        //guardar la informacion en un objeto con los datos que utilizaremos
+        const POKEMON = {
+            nombre: data.name,
+            id: data.id,
+            imagen: data.sprites.other.dream_world.front_default
+        }
+        imprimirPokemon(POKEMON);
         console.log(data);
 
     });
     request.fail(function( error ) {
-        console.log( 'Error: ' , error );
+        console.log( 'Error: ' , error ); 
     });
+}
+
+//imprimir entregando el objeto pokemon
+function imprimirPokemon(pokemon){
+    var imprimirNombre = document.getElementById("nombreDePokemon");
+    var imprimirImagen = document.getElementById("imagenPokemon");
+    var imprimirNumero = document.getElementById("numeroPokedex");
+    var imprimirTipo = document.getElementById("tipo");
+    imprimirNombre.innerHTML = `${pokemon.nombre.toUpperCase()}`;
+    imprimirImagen.src = `${pokemon.imagen}`;
+    imprimirNumero.innerHTML = `${pokemon.id}`;
+    imprimirTipo.innerHTML = `01`;
 }
 
