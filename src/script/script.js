@@ -1,4 +1,4 @@
-
+window.onload = pokemonSalvaje();
 function recogerDatos(){
     //tomar el valor ingresado en el input para despues entregarlo a la API
     let nombrePoke = document.getElementById("nombrePokemon").value;
@@ -38,6 +38,7 @@ function pokemonSalvaje(){
         const POKEMON = {
             nombre: data.name,
             id: data.id,
+            tipo: data.types[0].type.name,
             imagen: data.sprites.other.dream_world.front_default
         }
         imprimirPokemon(POKEMON);
@@ -58,6 +59,6 @@ function imprimirPokemon(pokemon){
     imprimirNombre.innerHTML = `${pokemon.nombre.toUpperCase()}`;
     imprimirImagen.src = `${pokemon.imagen}`;
     imprimirNumero.innerHTML = `${pokemon.id}`;
-    imprimirTipo.innerHTML = `01`;
+    imprimirTipo.innerHTML = `${pokemon.tipo}`;
 }
 
