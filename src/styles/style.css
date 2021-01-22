@@ -104,6 +104,7 @@ body{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .detallesPokemon__container--img{
     height: 240px;
