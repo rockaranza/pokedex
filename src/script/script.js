@@ -16,7 +16,13 @@ function recogerDatos(){
             tipo: traducirTipo(data.types[0].type.name),
             imagen: data.sprites.other.dream_world.front_default,
             altura: (data.height)/10,
-            peso: (data.weight)/10
+            peso: (data.weight)/10,
+            hp: data.stats[0].base_stat,
+            ataque: data.stats[1].base_stat,
+            defensa: data.stats[2].base_stat,
+            ataqueEspecial: data.stats[3].base_stat,
+            defensaEspecial: data.stats[4].base_stat,
+            velocidad: data.stats[5].base_stat,
         }
         imprimirPokemon(POKEMON);
         grafico(POKEMON);
