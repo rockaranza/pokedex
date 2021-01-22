@@ -4,24 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="StyleSheet" href="src/styles/style.css">
-    <title>Document</title>
+    <title>Pokedex</title>
 </head>
 <body>
     <header>
         
     </header>
     <body>
-        <section class="formulario">
-            <section class="formulario__container">
-                <img class="formulario__container--img" src="https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png">
-                <form class="formulario__container--form">
-                    <input class="input" id="nombrePokemon" type="text" placeholder="Nombre Pokemon">
-                    <input class="input" id="numeroPokemon" type="text" placeholder="# Pokemon">
-                    <button class="button" type="button" onclick="recogerDatos()">Buscar</button>
-                    <img src="" id="img" class="pokemon" alt="">
-                </form>
+        <div class="consola">
+        
+            <section class="formulario">
+                <section class="formulario__container">
+                    <img class="formulario__container--img" src="https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png">
+                    <form class="formulario__container--form">
+                        <input class="input" id="nombrePokemon" type="text" placeholder="Nombre Pokemon">
+                        <input class="input" id="numeroPokemon" type="text" placeholder="# Pokemon">
+                        <button class="button" type="button" onclick="recogerDatos()">Buscar</button>
+                        <img src="" id="img" class="pokemon" alt="">
+                    </form>
+                </section>
             </section>
-        </section>
+          
+            <section class="detallesPokemon">
+                <section class="detallesPokemon__container">
+                    <img class="detallesPokemon__container--img" src="https://static.pokemonpets.com/images/monsters-images-300-300/4-Charmander.png">
+                    <div class="detallesPolemon__container--info">
+                        <h2>Nombre Pokemon</h2>
+                    </div>
+                </section>
+            </section>
+        </div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="src/script/script.js"></script>
     </body>

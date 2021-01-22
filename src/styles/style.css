@@ -14,6 +14,12 @@ body{
     top: 0px;
 }
 
+.consola{
+    display: flex;
+    justify-content: center;
+    background-color: #ffff00;
+}
+
 .formulario{
     background-color: #ffff00;
     display: flex;
@@ -75,5 +81,32 @@ body{
     height: 50px;
     letter-spacing: 1px;
     margin: 10px 0px;
+}
+
+.detallesPokemon{
+    background-color: #ffff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.detallesPokemon__container{
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-left: 20px;
+    border: 2px solid #21209c;
+    border-radius: 40px;
+    color:  #21209c;
+    padding: 60px 68px 40px;
+    min-height: 400px;
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.detallesPokemon__container--img{
+    height: 240px;
+    width: 200px;
 }
 
