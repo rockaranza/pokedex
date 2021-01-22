@@ -13,7 +13,9 @@ function recogerDatos(){
             nombre: data.name,
             id: data.id,
             tipo: traducirTipo(data.types[0].type.name),
-            imagen: data.sprites.other.dream_world.front_default
+            imagen: data.sprites.other.dream_world.front_default,
+            altura: (data.height)/10,
+            peso: (data.weight)/10
         }
         imprimirPokemon(POKEMON);
         console.log(data);
@@ -40,10 +42,11 @@ function pokemonSalvaje(){
             nombre: data.name,
             id: data.id,
             tipo: traducirTipo(data.types[0].type.name),
-            imagen: data.sprites.other.dream_world.front_default
+            imagen: data.sprites.other.dream_world.front_default,
+            altura: (data.height)/10,
+            peso: (data.weight)/10
         }
         imprimirPokemon(POKEMON);
-        console.log(data);
 
     });
     request.fail(function( error ) {
@@ -132,9 +135,13 @@ function imprimirPokemon(pokemon){
     var imprimirImagen = document.getElementById("imagenPokemon");
     var imprimirNumero = document.getElementById("numeroPokedex");
     var imprimirTipo = document.getElementById("tipo");
+    var imprimirAltura = document.getElementById("altura");
+    var imprimirPeso = document.getElementById("peso");
     imprimirNombre.innerHTML = `${pokemon.nombre.toUpperCase()}`;
     imprimirImagen.src = `${pokemon.imagen}`;
     imprimirNumero.innerHTML = `${pokemon.id}`;
     imprimirTipo.innerHTML = `${pokemon.tipo}`;
+    imprimirAltura.innerHTML = `${pokemon.altura} m.`;
+    imprimirPeso.innerHTML = `${pokemon.peso} Kg.`;
 }
 
