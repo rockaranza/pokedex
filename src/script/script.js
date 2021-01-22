@@ -1,4 +1,5 @@
 window.onload = pokemonSalvaje();
+
 function recogerDatos(){
     //tomar el valor ingresado en el input para despues entregarlo a la API
     let nombrePoke = document.getElementById("nombrePokemon").value;
@@ -44,9 +45,16 @@ function pokemonSalvaje(){
             tipo: traducirTipo(data.types[0].type.name),
             imagen: data.sprites.other.dream_world.front_default,
             altura: (data.height)/10,
-            peso: (data.weight)/10
+            peso: (data.weight)/10,
+            hp: data.stats[0].base_stat,
+            ataque: data.stats[1].base_stat,
+            defensa: data.stats[2].base_stat,
+            ataqueEspecial: data.stats[3].base_stat,
+            defensaEspecial: data.stats[4].base_stat,
+            velocidad: data.stats[5].base_stat,
         }
         imprimirPokemon(POKEMON);
+        grafico(POKEMON);
 
     });
     request.fail(function( error ) {
@@ -145,3 +153,27 @@ function imprimirPokemon(pokemon){
     imprimirPeso.innerHTML = `${pokemon.peso} Kg.`;
 }
 
+function grafico(pokemon) {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light2", // "light2", "dark1", "dark2"
+        animationEnabled: true, 	
+        title:{
+            text: "Estadísticas"
+        },
+        data: [
+        {
+            
+            type: "column",
+            dataPoints: [
+                { label: "HP",  y: pokemon.hp  },
+                { label: "Ataque", y: pokemon.ataque },
+                { label: "Defensa", y: pokemon.defensa },
+                { label: "Ataque Especial",  y: pokemon.ataqueEspecial },
+                { label: "Defensa Especial",  y: pokemon.defensaEspecial }
+            ]
+        }
+        ]
+    });
+    chart.render();
+}
